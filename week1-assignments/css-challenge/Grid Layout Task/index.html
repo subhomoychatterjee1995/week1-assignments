@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A responsive dashboard layout using CSS Grid, featuring cards with consistent styling and hover effects.">
+    <meta name="author" content="Subhomoy Chatterjee">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Responsive CSS Grid Dashboard</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.25rem;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #718096;
+        }
+
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            grid-auto-rows: 1fr;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #ffffff;
+            font-size: 1.1rem;
+        }
+
+        .card-title-group h2 {
+            font-size: 1.1rem;
+            color: #2d3748;
+        }
+
+        .card-title-group span {
+            font-size: 0.8rem;
+            color: #a0aec0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card-body {
+            margin-bottom: 1.5rem;
+        }
+
+        .card-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: #718096;
+            line-height: 1.4;
+        }
+
+
+        .card-footer {
+            border-top: 1px solid #edf2f7;
+            padding-top: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .badge {
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        .badge-success {
+            background-color: #c6f6d5;
+            color: #22543d;
+        }
+
+        .badge-warning {
+            background-color: #feebc8;
+            color: #744210;
+        }
+
+        .badge-info {
+            background-color: #ebf8ff;
+            color: #2b6cb0;
+        }
+
+
+        .bg-blue {
+            background-color: #3182ce;
+        }
+
+        .bg-purple {
+            background-color: #805ad5;
+        }
+
+        .bg-green {
+            background-color: #38a169;
+        }
+
+        .bg-orange {
+            background-color: #dd6b20;
+        }
+
+        .bg-pink {
+            background-color: #d53f8c;
+        }
+
+        .bg-teal {
+            background-color: #319795;
+        }
+
+
+        @media (min-width: 900px) {
+            .card-wide {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .grid-layout {
+
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+        <header>
+            <h1>Analytics Dashboard</h1>
+            <p>Responsive CSS Grid Layout</p>
+        </header>
+
+
+        <main class="grid-layout">
+
+            <article class="card card-wide">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon bg-blue">📈</div>
+                        <div class="card-title-group">
+                            <span>Overview</span>
+                            <h2>Total Revenue</h2>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value">$128,430.00</div>
+                        <p class="card-desc">Gross revenue across all channels year-to-date, showing a steady +14%
+                            growth compared to last quarter.</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span>Target: $150,000</span>
+                    <span class="badge badge-success">+14.2%</span>
+                </div>
+            </article>
+
+
+            <article class="card">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon bg-purple">👥</div>
+                        <div class="card-title-group">
+                            <span>Users</span>
+                            <h2>Active Subscribers</h2>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value">24,512</div>
+                        <p class="card-desc">Total paying users with an active monthly subscription.</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span>Monthly Active</span>
+                    <span class="badge badge-success">+5.8%</span>
+                </div>
+            </article>
+
+
+            <article class="card">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon bg-green">🛒</div>
+                        <div class="card-title-group">
+                            <span>E-Commerce</span>
+                            <h2>New Orders</h2>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value">1,482</div>
+                        <p class="card-desc">Orders completed in the past 24 hours.</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span>Fulfillment: 99.2%</span>
+                    <span class="badge badge-info">Normal</span>
+                </div>
+            </article>
+
+
+            <article class="card">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon bg-orange">⚡</div>
+                        <div class="card-title-group">
+                            <span>Performance</span>
+                            <h2>Server Load</h2>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value">42.8%</div>
+                        <p class="card-desc">Average CPU utilization across main application clusters.</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span>Region: us-east-1</span>
+                    <span class="badge badge-success">Optimal</span>
+                </div>
+            </article>
+
+
+            <article class="card">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon bg-pink">🎯</div>
+                        <div class="card-title-group">
+                            <span>Marketing</span>
+                            <h2>Conversion Rate</h2>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value">3.64%</div>
+                        <p class="card-desc">Percentage of visitors completing a trial signup.</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span>Industry Avg: 2.5%</span>
+                    <span class="badge badge-warning">Needs Review</span>
+                </div>
+            </article>
+
+
+            <article class="card">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon bg-teal">💬</div>
+                        <div class="card-title-group">
+                            <span>Support</span>
+                            <h2>Open Tickets</h2>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value">18</div>
+                        <p class="card-desc">Customer support inquiries awaiting agent response.</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span>Avg response: 14m</span>
+                    <span class="badge badge-success">On Track</span>
+                </div>
+            </article>
+
+        </main>
+    </div>
+
+</body>
+
+</html>
